@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -9,4 +11,21 @@ void main() {
       Builder(builder: (_) => nil),
     );
   });
+
+  testWidgets(
+    'should throw if nil is used under a MultiChildRenderObjectElement',
+    (tester) async {
+      await tester.pumpWidget(
+        Column(
+          children: const [
+            nil,
+          ],
+        ),
+      );
+      expect(
+        tester.takeException(),
+        isAssertionError,
+      );
+    },
+  );
 }
