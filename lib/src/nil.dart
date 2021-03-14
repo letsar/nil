@@ -17,6 +17,15 @@ class _NilElement extends Element {
   _NilElement(Nil widget) : super(widget);
 
   @override
+  void mount(Element? parent, dynamic newSlot) {
+    if (kDebugMode && parent is MultiChildRenderObjectElement) {
+      print('Warning message here');
+    }
+
+    super.mount(parent, newSlot);
+  }
+
+  @override
   bool get debugDoingBuild => false;
 
   @override
