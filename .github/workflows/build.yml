@@ -1,0 +1,41 @@
+name: Build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  sanity_check:
+    runs-on: ubuntu-latest
+  
+    strategy:
+      matrix:
+        channel:
+          - stable
+          - dev
+          - beta
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: ${{ matrix.channel }}
+
+      - name: Removing example folder
+        run: rm -rf example
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Check format
+        run: flutter format --set-exit-if-changed .
+
+      - name: Analyze
+        run: flutter analyze
+
+      - name: Run tests
+        run: flutter test --coverage
+
+      - name: Upload coverage to codecov
+        run: curl -s https://codecov.io/bash | bash

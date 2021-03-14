@@ -1,0 +1,16 @@
+name: nil
+description: A simple widget to add in the widget tree when you want to show nothing, with minimal impact on performance.
+version: 1.0.0
+homepage: https://github.com/letsar/nil
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
