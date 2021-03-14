@@ -19,7 +19,7 @@ class _NilElement extends Element {
 
   @override
   void mount(Element? parent, dynamic newSlot) {
-    assert(parent is MultiChildRenderObjectElement, """
+    assert(parent is! MultiChildRenderObjectElement, """
         You are using Nil under a MultiChildRenderObjectElement.
         This suggests a possibility that the Nil is not needed or is being used improperly.
         Make sure it can't be replaced with an inline conditional or
