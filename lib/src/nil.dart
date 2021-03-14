@@ -19,7 +19,11 @@ class _NilElement extends Element {
   @override
   void mount(Element? parent, dynamic newSlot) {
     if (kDebugMode && parent is MultiChildRenderObjectElement) {
-      print('Warning message here');
+      print("""You are using Nil under a MultiChildRenderObjectElement.
+        This suggests a possibility that the Nil is not needed or is being used improperly.
+        Make sure it can't be replaced with an inline conditional or
+        omission of the target widget from a list.
+        """);
     }
 
     super.mount(parent, newSlot);
