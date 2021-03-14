@@ -30,6 +30,10 @@ return Builder(
 );
 ```
 
+## Warning
+
+This widget is not intended to be used in widgets accepting multiple children (e.g. `Rows`, `Columns`, etc.). The best option is to not add a widget in the list if you don't want it to be displayed. Moreover using a `Nil` widget in such a case, can have unexpected results.
+
 ## Sponsoring
 
 I'm working on my packages on my free-time, but I don't have as much time as I would. If this package or any other package I created is helping you, please consider to sponsor me so that I can take time to read the issues, fix bugs, merge pull requests and add features to these packages.
