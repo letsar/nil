@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter/foundation.dart';
 
 /// A [Nil] instance, you can use in your layouts.
 const nil = Nil();
