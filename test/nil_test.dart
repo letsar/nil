@@ -9,4 +9,21 @@ void main() {
       Builder(builder: (_) => nil),
     );
   });
+
+  testWidgets(
+    'should throw if nil is used under a MultiChildRenderObjectElement',
+    (tester) async {
+      await tester.pumpWidget(
+        Column(
+          children: const [
+            nil,
+          ],
+        ),
+      );
+      expect(
+        tester.takeException(),
+        isAssertionError,
+      );
+    },
+  );
 }
